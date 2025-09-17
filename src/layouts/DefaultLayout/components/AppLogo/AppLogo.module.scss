@@ -1,0 +1,33 @@
+$logo-text-color: #292929; // Màu chữ tối, không phải đen kịt
+$primary-color: #007bff; // Màu chính để làm điểm nhấn khi hover
+$transition-speed: 0.3s ease; // Tốc độ hiệu ứng
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: $logo-text-color;
+
+  // Hiệu ứng khi di chuột vào toàn bộ logo
+  &:hover {
+    .logoText {
+      color: $primary-color; // Đổi màu chữ khi hover
+    }
+    .logoImage {
+      transform: rotate(-10deg) scale(1.1); // Xoay nhẹ và phóng to ảnh
+    }
+  }
+}
+
+.logoImage {
+  width: 32px; // Giảm kích thước một chút cho tinh tế
+  height: 32px;
+  margin-right: 12px;
+  transition: transform $transition-speed; // Thêm hiệu ứng chuyển động
+}
+
+.logoText {
+  font-size: 1rem; // Sử dụng đơn vị rem cho dễ tùy biến
+  font-weight: 700; // Tăng độ đậm
+  transition: color $transition-speed; // Thêm hiệu ứng chuyển màu
+}

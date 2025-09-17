@@ -1,0 +1,121 @@
+
+$text-color: #212529;
+$text-color-light: #6c757d;
+$border-color: #dee2e6;
+$background-hover: #f8f9fa;
+$border-radius: 8px;
+$box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+$transition-speed: 0.2s ease;
+
+.userMenu {
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+// --- NÚT BẤM HIỂN T HỊ TÊN VÀ AVATAR ---
+.userButton {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: $border-radius;
+  transition: background-color $transition-speed;
+
+  &:hover {
+    background-color: $background-hover;
+  }
+}
+
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 1px solid $border-color;
+}
+
+.userName {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: $text-color;
+}
+
+// --- KHUNG DROPDOWN ---
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: #fff;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  border: 1px solid $border-color;
+  padding: 8px;
+  z-index: 10;
+  min-width: 240px;
+  list-style: none;
+  margin: 0;
+  animation: fadeIn 0.15s ease-out;
+}
+
+// --- CÁC PHẦN BÊN TRONG DROPDOWN ---
+.dropdownHeader {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid $border-color;
+  margin-bottom: 8px;
+
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+  .userEmail {
+    font-size: 0.8rem;
+    color: $text-color-light;
+  }
+}
+
+// SỬA LỖI HOVER: Áp dụng style cho thẻ <a> thay vì <li>
+.menuItem {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: $text-color;
+  border-radius: 6px;
+  transition: background-color $transition-speed, color $transition-speed;
+
+  &:hover {
+    background-color: $background-hover;
+    color: #000;
+  }
+}
+
+.icon {
+  margin-right: 12px;
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+.divider {
+  height: 1px;
+  background-color: $border-color;
+  margin: 8px 0;
+}
+
+// --- Hiệu ứng xuất hiện ---
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
