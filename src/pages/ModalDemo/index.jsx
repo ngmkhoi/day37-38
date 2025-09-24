@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import Modal from '../../layouts/DefaultLayout/components/Modal';
+import { useState, useRef } from 'react';
+import Modal from '../../components/Modal';
 import styles from './ModalDemo.module.scss';
 
 function ModalDemo() {
@@ -9,17 +9,17 @@ function ModalDemo() {
     const [noEscCloseModalOpen, setNoEscCloseModalOpen] = useState(false);
     const [customStyleModalOpen, setCustomStyleModalOpen] = useState(false);
     const [callbackModalOpen, setCallbackModalOpen] = useState(false);
+    const [refModalOpen, setRefModalOpen] = useState(false);
+    const modalRef = useRef(null);
 
     return (
-        <div>
-            <h1>Modal Demo</h1>
+        <div className={styles.container}>
+            <h1>Demo Modal Component</h1>
 
-            {/*Basic Modal*/}
+            {/* Demo 1: Basic Modal */}
             <section className={styles.section}>
-                <h2>Basic Modal</h2>
-                <button onClick={() => setBasicModalOpen(!basicModalOpen) }>
-                    Mở Basic Modal
-                </button>
+                <h2>1. Basic Modal</h2>
+                <button onClick={() => setBasicModalOpen(true)}>Mở Basic Modal</button>
                 <Modal
                     isOpen={basicModalOpen}
                     onRequestClose={() => setBasicModalOpen(false)}
@@ -107,6 +107,23 @@ function ModalDemo() {
                 >
                     <h2 id="modal-title">Callback Modal</h2>
                     <p>Kiểm tra console để thấy log từ onAfterOpen và onAfterClose.</p>
+                </Modal>
+            </section>
+
+            {/* Demo 7: Ref Methods */}
+            <section className={styles.section}>
+                <h2>7. Modal với Ref Methods</h2>
+                <button onClick={() => modalRef.current.open()}>Mở Modal qua Ref</button>
+                <button onClick={() => modalRef.current.close()}>Đóng Modal qua Ref</button>
+                <button onClick={() => modalRef.current.toggle()}>Toggle Modal qua Ref</button>
+                <Modal
+                    ref={modalRef}
+                    isOpen={refModalOpen}
+                    onRequestClose={() => setRefModalOpen(false)}
+                    closeTimeoutMS={300}
+                >
+                    <h2 id="modal-title">Ref Modal</h2>
+                    <p>Modal này được điều khiển bằng ref methods (open, close, toggle).</p>
                 </Modal>
             </section>
         </div>

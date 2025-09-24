@@ -1,6 +1,6 @@
 import styles from './Home.module.scss';
 import {useState} from "react";
-import Modal from "../../layouts/DefaultLayout/components/Modal/index.jsx";
+import Modal from "../../components/Modal/index.jsx";
 import GoToTop from "../../components/GoToTop/index.jsx";
 
 function Home() {

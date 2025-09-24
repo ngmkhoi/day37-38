@@ -4,7 +4,7 @@ import styles from './Profile.module.scss';
 function Profile() {
     const [avatarFile, setAvatarFile] = useState(null);
     const [avatarPreview, setAvatarPreview] = useState(null);
-    const defaultAvatar = 'https://via.placeholder.com/100'; // Avatar mặc định
+    const defaultAvatar = 'https://i.pravatar.cc/40'; // Avatar mặc định
 
     // Xử lý chọn file
     const handleFileChange = (event) => {
